@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Electrolize&display=swap" rel="stylesheet">
        <script src="https://kit.fontawesome.com/dbdddb1dcd.js" crossorigin="anonymous"></script>
-    <title>Document</title>
+    <title>Trivia game</title>
 </head>
 <body>
     
@@ -29,9 +29,9 @@
                     Selecciona tus opciones
                 </h3>
             </div>
-            <form action="" class="questions-options">
+            <form action="" class="questions-options" id="questionsForm">
                 <label for="">Numero de preguntas</label>
-                <input type="text">
+                <input type="text"  id="numberOfQuestions" placeholder="cuantas preguntas quieres">
 
 
                 <label for="">Categoria :</label>
@@ -64,23 +64,23 @@
                   </select>
                 
                 <label for="">Dificultad :</label>
-                <select name="" id="">
-                    <option value="Any category">Any category</option>
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
+                <select name="" id="difficulty">
+                    <option value="0">Any category</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
                 </select>
                 
                 <label for="">Tipo de pregunta :</label>
-                <select name="" id="">
-                    <option value="Any type">Any type</option>
-                    <option value="Multiple Choice">Multiple Choice</option>
+                <select name="" id="typeOfQuestion">
+                    <option value="0">Any type</option>
+                    <option value="multiple">Multiple Choice</option>
                     <option value="boolean">True/False</option>
                     <option value=""></option>
                 </select>
                
 
-                <div class="start-trivia">
+                <div class="start-trivia" id="startButton">
                    <button class="start-button">Comenzar trivia</button>
                 </div>
                 
@@ -89,6 +89,9 @@
 
             
             
+        </div>
+        <div class="question-answers" id="questionsAnswers">
+
         </div>
 
 
