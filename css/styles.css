@@ -1,0 +1,95 @@
+* { 
+    margin : 0 ; 
+    padding:  0 ;
+    box-sizing:  border-box;
+    font-family: 'Electrolize', sans-serif;
+}
+
+body { 
+    background-color: #FDE49C;
+}
+
+.main-trivia-container { 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    flex-direction: column;
+    
+}
+
+.welcome-trivia { 
+  text-align: center;
+  padding: 5em;
+  padding-bottom:2.5em;
+  width: 100%;
+  margin: auto;
+  background-color: #64C9CF;
+}
+
+.welcome-trivia h3 { 
+    font-size: 1.8em;
+}
+.welcome-trivia h4 { 
+    font-size: 1.8rem;
+} 
+
+.fa-gamepad{ 
+    padding: 0.2em;
+    padding-bottom: 0;
+}
+.questions-container{
+  width: 60%;
+  margin: auto;
+  background-color: #64C9CF;
+  padding: 2em;
+  margin-top: 2em;
+  border-radius: 1em;
+  
+}
+.questions-options label,option { 
+    font-size: 1.4rem;
+    padding: 0.5em;
+}
+.questions-options input,select { 
+    border-radius: 0.5em;
+}
+.text-questions { 
+    text-align: center;
+   
+    width: 100%;
+}
+
+.questions-options { 
+    display: flex;
+    flex-direction: column; 
+    padding-left: 25%;
+    padding-right: 25%;
+
+
+   
+    
+    
+   
+}
+input,select { 
+    font-size: 1.1rem;
+}
+
+.start-trivia { 
+    margin: auto;
+    padding: 2em;
+}
+
+.start-button { 
+    border-radius: 0.5em;
+    padding: 0.5em;
+    width: 100%;
+    background-color: #FFB740;
+    color: white;
+    font-size: 1rem;
+    font-weight:600 ;
+}
+
+.start-button:hover { 
+    background-color: #DF711B;
+}
