@@ -93,3 +93,45 @@ input,select {
 .start-button:hover { 
     background-color: #DF711B;
 }
+
+/* elementos de javascript */
+
+.question-answers { 
+     display: flex ;
+     width: 100%;
+     align-items: center;
+     padding: 1em;
+     flex-direction: column;
+}
+.visible-question { 
+    width: 100%;
+}
+.visible-answer { 
+    background-color: red;
+    padding: 2em;
+    width: 100%;
+   flex-wrap: wrap;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.answer-container { 
+    width: 100%;
+}
+
+.answer-options{ 
+    border-radius: 0.5em;
+    background-color: blue;
+    
+}
+
+.answer-options input { 
+    cursor: pointer;
+   
+   
+}
+.button-style { 
+    padding: 1.5em;
+    border-radius: 1em;
+    background-color: yellow;
+}
