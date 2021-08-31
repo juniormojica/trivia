@@ -1,13 +1,13 @@
 
 //trayendo los elementos html
-const questionsForm = document.getElementById("questionsForm")
+let questionsForm = document.getElementById("questionsForm")
 
-const startButton = document.getElementById("startButton")
-const questionsAnswers = document.getElementById("questionsAnswers")
-const firstQuestion = document.getElementById("firstQuestion")
-const secondQuestion = document.getElementById("secondQuestion")
-const thirdQuestion = document.getElementById("thirdQuestion")
-const fourthQuestion = document.getElementById("fourthQuestion")
+let startButton = document.getElementById("startButton")
+let questionsAnswers = document.getElementById("questionsAnswers")
+let firstQuestion = document.getElementById("firstQuestion")
+let secondQuestion = document.getElementById("secondQuestion")
+let thirdQuestion = document.getElementById("thirdQuestion")
+let fourthQuestion = document.getElementById("fourthQuestion")
 
 
 
@@ -45,66 +45,95 @@ const BringQuestions = (e)=>{
     const fillQuestions = (questionsApi)=>{
         questions = questionsApi;
 
-        console.log(questions)
+      
         questionsAnswers.innerHTML= "";
         for (const element in questions) {
             
-            const answerContainer= document.createElement("div")
+            let answerContainer= document.createElement("div")
             answerContainer.classList.add("answer-container")
 
-            const visibleAnswer = document.createElement("h4")
-            visibleAnswer.classList.add("visible-answer")
-            visibleAnswer.innerText = `${questions[element].question}`
-
-            const visibleQuestions = document.createElement("h3")
+            let visibleQuestions = document.createElement("h3")
             visibleQuestions.classList.add("visible-question")
             visibleQuestions.innerText = `pregunta ${element}, es ${questions[element].difficulty} de la categoria ${questions[element].category}  `
+            visibleQuestions.style.padding = "1.5em"
+            visibleQuestions.style.textAlign = "left"
+
            
-            
+            let answerOptions = document.createElement("div")
+                answerOptions.classList.add("answer-options")
 
-            const answerOptions = document.createElement("div")
-            answerOptions.classList.add("answer-options")
-            const eachAnswerOption = document.createElement("h4")
+
+            let eachAnswerOption = document.createElement("h4")
             eachAnswerOption.classList.add("each-answer-option")
+
             
+            let visibleAnswer = document.createElement("h4")
+                visibleAnswer.classList.add("visible-answer")
+                visibleAnswer.innerText = `${questions[element].question}`
+                visibleAnswer.style.fontSize ="1.5rem"
 
 
-
-            questionsAnswers.appendChild(answerContainer)
-            questionsAnswers.appendChild(answerOptions)
-            answerContainer.appendChild(visibleQuestions)
-            visibleQuestions.appendChild(visibleAnswer)
-            visibleAnswer.appendChild(eachAnswerOption)
-            
-            for (const key in questions) {
-
-                if(questions[key].type === "boolean") { 
-                    eachAnswerOption.innerHTML = ` <div class=""answer-options"">
-                    <input  type="button" id="firstQuestion" value=" ${questions[key].incorrect_answers}">
-                    <input  type="button" id="secondQuestion" value=" ${questions[key].incorrect_answers}">`
-                }
-
-                else{ 
-                    eachAnswerOption.innerHTML = ` <div class=""answer-options"">
-                    <input  type="button" id="firstQuestion" class="button-style" value=" ${questions[key].incorrect_answers}">
-                    <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[key].incorrect_answers}">
-                    <input  type="button" id="thirdQuestion" class="button-style" value=" ${questions[key].incorrect_answers}">
-                    <input  type="button" id="fourthQuestion" class="button-style" value=" ${questions[key].incorrect_answers}">`
-                }
+                questionsAnswers.appendChild(answerOptions)
+                visibleAnswer.appendChild(eachAnswerOption)
+                visibleQuestions.appendChild(visibleAnswer)
+    
                 
-               
-             
-            }
-             
+                
+    
+    
+    
+                questionsAnswers.appendChild(answerContainer)
+                
+                answerContainer.appendChild(visibleQuestions)
+                
+           
+
+                eachAnswerOption.innerHTML = `${questions[element].incorrect_answers}`
+                console.log(questions[element].type ==="boolean")
+
+                if(questions[element].type ==="boolean"){
+                    eachAnswerOption.innerHTML = ` <div class=""answer-options"">
+                            <input  type="button" id="firstQuestion" class="button-style" value=" ${questions[element].incorrect_answers}">
+                            <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[element].correct_answer}">`
+                       }
+                       else{
+                        eachAnswerOption.innerHTML = ` <div class=""answer-options"">
+                            <input  type="button" id="firstQuestion" class="button-style" value=" ${questions[element].incorrect_answers[0]}">
+                            <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[element].incorrect_answers[1]}">
+                            <input  type="button" id="thirdQuestion" class="button-style" value=" ${questions[element].correct_answer}">
+                            <input  type="button" id="fourthQuestion" class="button-style" value=" ${questions[element].incorrect_answers[2]}">`
+                            }
+                       
+                }
+
+                console.log(questions)
+                
+
+
+
+        
+          
+            
+            
+            
         }
         
+
+
+        
+
+        
+
+
+
+       
         
     }
 
 
   
     
-}
+
 
 
 

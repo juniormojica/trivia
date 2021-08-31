@@ -99,24 +99,33 @@ input,select {
 .question-answers { 
      display: flex ;
      width: 100%;
-     align-items: center;
+    
      padding: 1em;
      flex-direction: column;
 }
 .visible-question { 
     width: 100%;
+   
 }
+
+
+
 .visible-answer { 
-    background-color: red;
+    background-color: #64C9CF;
     padding: 2em;
     width: 100%;
    flex-wrap: wrap;
     min-width: 100%;
     min-height: 100%;
+    
 }
 
 .answer-container { 
     width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
 }
 
 .answer-options{ 
@@ -133,5 +142,8 @@ input,select {
 .button-style { 
     padding: 1.5em;
     border-radius: 1em;
-    background-color: yellow;
+    background-color: #FFB740;
+}
+.selector { 
+    background-color: pink;
 }
