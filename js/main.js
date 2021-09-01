@@ -1,15 +1,11 @@
 
 //trayendo los elementos html
 let questionsForm = document.getElementById("questionsForm")
+let userSelection = document.getElementsByClassName("button-style")
+
 
 let startButton = document.getElementById("startButton")
 let questionsAnswers = document.getElementById("questionsAnswers")
-let firstQuestion = document.getElementById("firstQuestion")
-let secondQuestion = document.getElementById("secondQuestion")
-let thirdQuestion = document.getElementById("thirdQuestion")
-let fourthQuestion = document.getElementById("fourthQuestion")
-
-
 
 
 //funciones
@@ -18,9 +14,11 @@ const  fillQuestions = questionsAPI=>{ questions = questionsAPI ; }
 
 
 //funcion principal de la trivia
+
 let questions = [];
 const BringQuestions = (e)=>{
-  
+   
+    
     e.preventDefault();
     const API = "https://opentdb.com/api.php?" ; 
 
@@ -49,7 +47,9 @@ const BringQuestions = (e)=>{
         questionsAnswers.innerHTML= "";
         for (const element in questions) {
             
+            
             let answerContainer= document.createElement("div")
+            
             answerContainer.classList.add("answer-container")
 
             let visibleQuestions = document.createElement("h3")
@@ -57,10 +57,6 @@ const BringQuestions = (e)=>{
             visibleQuestions.innerText = `pregunta ${element}, es ${questions[element].difficulty} de la categoria ${questions[element].category}  `
             visibleQuestions.style.padding = "1.5em"
             visibleQuestions.style.textAlign = "left"
-
-           
-            let answerOptions = document.createElement("div")
-                answerOptions.classList.add("answer-options")
 
 
             let eachAnswerOption = document.createElement("h4")
@@ -73,67 +69,170 @@ const BringQuestions = (e)=>{
                 visibleAnswer.style.fontSize ="1.5rem"
 
 
-                questionsAnswers.appendChild(answerOptions)
+                
                 visibleAnswer.appendChild(eachAnswerOption)
                 visibleQuestions.appendChild(visibleAnswer)
     
                 
                 
-    
-    
-    
                 questionsAnswers.appendChild(answerContainer)
-                
                 answerContainer.appendChild(visibleQuestions)
-                
+                    
            
 
-                eachAnswerOption.innerHTML = `${questions[element].incorrect_answers}`
-                console.log(questions[element].type ==="boolean")
-
+            
                 if(questions[element].type ==="boolean"){
-                    eachAnswerOption.innerHTML = ` <div class=""answer-options"">
+                        
+                    eachAnswerOption.innerHTML = `<div class="answer-options"> 
+                         <form action="" id="sender">
                             <input  type="button" id="firstQuestion" class="button-style" value=" ${questions[element].incorrect_answers}">
-                            <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[element].correct_answer}">`
-                       }
-                       else{
-                        eachAnswerOption.innerHTML = ` <div class=""answer-options"">
-                            <input  type="button" id="firstQuestion" class="button-style" value=" ${questions[element].incorrect_answers[0]}">
-                            <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[element].incorrect_answers[1]}">
-                            <input  type="button" id="thirdQuestion" class="button-style" value=" ${questions[element].correct_answer}">
-                            <input  type="button" id="fourthQuestion" class="button-style" value=" ${questions[element].incorrect_answers[2]}">`
-                            }
+                            <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[element].correct_answer}"
+                         </form>
+                         </div>`
+                        
                        
-                }
-
-                console.log(questions)
-                
-
-
-
+             }
         
-          
-            
-            
-            
+            else{
+                     eachAnswerOption.innerHTML = ` <div class="answer-options">
+                     <form action="" id="sender">
+                         <input  type="button" id="firstQuestion" class="button-style" value=" ${questions[element].incorrect_answers[0]}">
+                         <input  type="button" id="secondQuestion" class="button-style" value=" ${questions[element].incorrect_answers[1]}">
+                         <input  type="button" id="thirdQuestion" class="button-style" value=" ${questions[element].correct_answer}">
+                         <input  type="button" id="fourthQuestion" class="button-style" value=" ${questions[element].incorrect_answers[2]}">
+                     </form>
+                         
+                     </div>`    
+                     
+                    
+                  }
+                  
+                             
+                             
         }
-        
+     
+     
+            
+
+                    puntuacion = 0;
+               
+                    const firstQuestion = document.getElementById("firstQuestion")
+                    const secondQuestion = document.getElementById("secondQuestion")
+                      const thirdQuestion = document.getElementById("thirdQuestion")
+                    const fourthQuestion = document.getElementById("fourthQuestion")
+                
+                    
+                firstQuestion.onclick = ()=>{
+                    for (let i = 0; i < questions.length; i++) {
+                        const element = questions[i];
+
+                        if(element.correct_answer ===firstQuestion.value){
+                            console.log("correct")
+                        }
+                        else if(element.correct_answer ===secondQuestion.value) { 
+                            console.log("correct")
+                        }
+                        else if(element.correct_answer ===thirdQuestion.value){
+                            console.log("correct")
+                        }
+                        else if(element.correct_answer ===fourthQuestion.value){
+                            console.log("correct")
+                        }
+                        else { 
+                           alert(`seleccionaste${firstQuestion.value} y la respuesta correcta es ${element.correct_answer} tu puntuacion es :${puntuacion} de 1 `)
+                        }
+                        
+                    }
+                    
+                   
+                }
+                secondQuestion.onclick=()=>{
+                    for (let i = 0; i < questions.length; i++) {
+                        const element = questions[i];
+
+                        if(questions[i].correct_answer ===firstQuestion.value){
+                            console.log("correct")
+                        }
+                        else if(questions[i].correct_answer ===secondQuestion.value) { 
+                            console.log("correct")
+                        }
+                        else if(questions[i].correct_answer ===thirdQuestion.value){
+                            console.log("correct")
+                        }
+                        else if(questions[i].correct_answer ===fourthQuestion.value){
+                            console.log("correct")
+                        }
+                        else { 
+                            alert(`seleccionaste${secondQuestion.value} y la respuesta correcta es ${element.correct_answer}`)
+                        }
+                }    }
 
 
-        
+                // thirdQuestion.onclick=()=>{
+                //     for (let i = 0; i < questions.length; i++) {
+                //         const element = questions[i];
 
-        
+                //         if(element.correct_answer ===firstQuestion.value){
+                //             console.log("correct")
+                //         }
+                //         else if(element.correct_answer ===secondQuestion.value) { 
+                //             console.log("correct")
+                //         }
+                //         else if(element.correct_answer ===thirdQuestion.value){
+                //             console.log("correct")
+                //         }
+                //         else if(element.correct_answer ===fourthQuestion.value){
+                //             console.log("correct")
+                //         }
+                //         else { 
+                //             console.log("incorrect")
+                //         }
+                //         console.log(element.correct_answer)
+                //         console.log(element)
+                //         console.log(firstQuestion.value)
+                //         console.log(secondQuestion.value)
+                //         console.log(thirdQuestion.value)
+                //         console.log(fourthQuestion.value)
 
+                //     }
+                // }
 
+                fourthQuestion.onclick=()=>{
+                    for (let i = 0; i < questions.length; i++) {
+                        const element = questions[i];
 
-       
-        
-    }
-
-
-  
+                        if(questions[i].correct_answer ===firstQuestion.value){
+                            console.log("correct")
+                        }
+                        else if(questions[i].correct_answer ===secondQuestion.value) { 
+                            console.log("correct")
+                        }
+                        else if(questions[i].correct_answer ===thirdQuestion.value){
+                            console.log("correct")
+                        }
+                        else if(questions[i].correct_answer ===fourthQuestion.value){
+                            console.log("correct")
+                        }
+                        else { 
+                            alert(`seleccionaste${fourthQuestion.value} y la respuesta correcta es ${element.correct_answer}`)
+                        }
+                      }
+                }
+                
+                // secondQuestion.addEventListener("click",()=>{secondQuestion.value})
+                // thirdQuestion.addEventListener("click",()=>{thirdQuestion.value})
+                // fourthQuestion.addEventListener("click",()=>{fourthQuestion.value})
+                
+                
+                
+                
+                    
+                
+                
     
-
+    
+}}
+ 
 
 
 

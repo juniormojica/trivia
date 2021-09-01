@@ -128,11 +128,6 @@ input,select {
     
 }
 
-.answer-options{ 
-    border-radius: 0.5em;
-    background-color: blue;
-    
-}
 
 .answer-options input { 
     cursor: pointer;
@@ -146,4 +141,10 @@ input,select {
 }
 .selector { 
     background-color: pink;
+}
+
+.buttonstyle{ 
+    border-radius: 0.5em;
+    background-color: blue;
+    
 }
